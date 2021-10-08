@@ -1,0 +1,25 @@
+{
+  "name": "Utility Extention",
+  "description": "nice useful stuff",
+  "version": "2.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "welpy"
+  },
+  "content_scripts": [
+    {
+      "js": ["src/index.js"],
+      "matches": [
+        "https://www.youtube.com/*"
+      ]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com//*"
+  ]
+  
+}
