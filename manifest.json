@@ -14,12 +14,15 @@
       ]
     }
   ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
   "permissions": [
     "tabs",
     "scripting"
   ],
   "host_permissions": [
-    "https://www.youtube.com//*"
+    "https://www.youtube.com/*"
   ]
   
 }

@@ -1,3 +1,4 @@
+console.log("%cSTARTED", "font-size: 24px; color: red")
 const injectCSS = css => {
     let el = document.createElement('style');
     el.type = 'text/css';
@@ -6,6 +7,9 @@ const injectCSS = css => {
     return el;
   };
   
+  injectCSS(`[aria-label="Play on TV"] {
+    display: none;
+  }`)
   injectCSS(`.ytp-remote-button.ytp-button {
     display: none;
   }`)
