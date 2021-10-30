@@ -13,7 +13,7 @@
         return el;
       };
       
-      injectCSS(`[aria-label="Play on TV"] {
+      injectCSS(`[title="Play on TV"] {
         display: none;
       }
       .ytp-remote-button.ytp-button {
