@@ -1,3 +1,4 @@
+import { Feature } from '../../entities/Feature'
 import waitFor from '../../util/waitFor'
 
 const getBruh = async () => {
@@ -6,9 +7,7 @@ const getBruh = async () => {
     return bruh
 }
 
-const observer = new MutationObserver(async e => {
-    console.log(e)
-    const bruh = await getBruh()
+const appendToResults = (bruh: Element[]) => {
     bruh.forEach(elem => {
         if (elem.lastChild instanceof HTMLElement && elem.lastChild?.dataset.bruh === 'true') return
         console.log(elem)
@@ -18,6 +17,11 @@ const observer = new MutationObserver(async e => {
             elem.appendChild(createButton(id))
         }
     })
+}
+const observer = new MutationObserver(async e => {
+    console.log(e)
+    const bruh = await getBruh()
+    appendToResults(bruh)
 })
 
 const createButton = (id: string) => {
@@ -33,22 +37,18 @@ const createButton = (id: string) => {
     return button
 }
 
-const osumain = async () => {
-    const bruh = await getBruh()
-    observer.observe(document.querySelector('.infinite-scroll-component.row')!, {
-        attributes: true,
-        childList: true,
-        subtree: true
-    })
-    bruh.forEach(elem => {
-        if (elem.lastChild instanceof HTMLElement && elem.lastChild?.dataset.bruh === 'true') return
-        console.log(elem)
-        const imgSplithehe = elem.querySelector('img')?.src.split('/')
-        if (imgSplithehe) {
-            const id = imgSplithehe[imgSplithehe.findIndex(s => s === 'beatmaps') + 1]
-            elem.appendChild(createButton(id))
+class OsuCollector extends Feature {
+    async startFeature() {
+        if (location.href.includes('https://osucollector.com/collections')) {
+            const bruh = await getBruh()
+            observer.observe(document.querySelector('.infinite-scroll-component.row')!, {
+                attributes: true,
+                childList: true,
+                subtree: true
+            })
+            appendToResults(bruh)
         }
-    })
+    }
 }
 
-export default osumain
+export default OsuCollector

@@ -33,7 +33,7 @@ export const nsfwBlockerMain = async () => {
 
 class NsfwBlocker extends Feature {
     startFeature() {
-        console.log('STARTED :D')
+        nsfwBlockerMain()
     }
 }
 
