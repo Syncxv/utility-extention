@@ -9,3 +9,6 @@ export class Settings {
         await chrome.storage.sync.set({ [key]: value })
     }
 }
+
+const settings = new Settings()
+export default settings
