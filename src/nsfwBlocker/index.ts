@@ -30,8 +30,9 @@ const fasterBadWebsites: { [key: string]: boolean } = {
 };
 export const nsfwBlockerMain = async () => {
     console.log('Hi');
-    console.clear = () => {};
-    const real = location.hostname.replace('www.', '');
+    const splitted = location.hostname.split('.');
+    splitted.length === 3 ? splitted.shift() : splitted;
+    const real = splitted.join('.');
 
     if (fasterBadWebsites[real]) {
         console.log("you're being very bad");
