@@ -19,7 +19,7 @@ module.exports = {
     },
     externals: {},
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.tsx', '.js'],
         fallback: {
             path: require.resolve('path-browserify')
             // fs: require.resolve('browserify-fs'),

@@ -1,4 +1,6 @@
+import { h, render } from 'preact'
 import { Feature } from '../../entities/Feature'
+import { Cool } from './components/cool'
 
 const fasterBadWebsites: { [key: string]: boolean } = {
     'pornhub.com': true,
@@ -25,11 +27,7 @@ class NsfwBlocker extends Feature {
         if (fasterBadWebsites[real]) {
             console.log("you're being very bad")
             document.body.innerHTML = ''
-            document.body.style.display = 'flex'
-            document.body.style.alignItems = 'center'
-            document.body.style.justifyContent = 'center'
-            document.body.style.height = '100vh'
-            document.body.append('GET BACK ON THE GRIND KIND SIR')
+            render(h(Cool, {}), document.body)
         }
     }
 }
