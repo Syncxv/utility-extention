@@ -1,15 +1,15 @@
 export class Feature {
     ready: boolean;
-    startFeature?: any;
-    stopFeature?: any;
     constructor() {
         this.ready = false;
     }
     get color() {
         return '#EB34D9';
     }
-
+    startFeature() {}
+    stopFeature() {}
     async _start() {
+        console.log(this);
         try {
             if (typeof this.startFeature === 'function') {
                 await this.startFeature();

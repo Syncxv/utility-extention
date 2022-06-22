@@ -6,7 +6,8 @@ const App = () => {
 
     return (
         <div>
-            <p>Do you agree to the statement: "Preact is awesome"?</p>
+            Do you agree to the statement: "Preact is awesome"?
+            <p>{input}</p>
             <input value={input} onInput={(e) => setInput((e.target as HTMLInputElement).value)} />
         </div>
     );
