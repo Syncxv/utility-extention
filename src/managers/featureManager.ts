@@ -11,7 +11,9 @@ export class FeatureManager {
     get(pluginID: string) {
         return this.features.get(pluginID)
     }
-
+    getFeatureMapIds() {
+        return [...utilityExtention.featureManager.features.keys()]
+    }
     async isEnabled(plugin: string) {
         return !(await utilityExtention.settings.get('disabledPlugins', [])).includes(plugin)
     }
@@ -30,7 +32,7 @@ export class FeatureManager {
     }
 
     async startAllFeatures() {
-        await Promise.all(this.getFeatureIds().map(async id => await this.mount(id))) //mount them all: ;
+        await this.mountAllFeatures()
         for (const feature of [...this.features.values()]) {
             if ((await utilityExtention.settings.get('disabledFeatures', [])).includes(feature.entityID)) {
                 continue
@@ -38,7 +40,10 @@ export class FeatureManager {
             this.load(feature.entityID)
         }
     }
-
+    async mountAllFeatures() {
+        await Promise.all(this.getFeatureIds().map(async id => await this.mount(id))) //mount them all: ;
+        await utilityExtention.settings.set('features', this.getFeatureMapIds())
+    }
     load(featureID: string) {
         const feature = this.get(featureID)
         if (!feature) {
