@@ -14,26 +14,23 @@ const fasterBadWebsites: { [key: string]: boolean } = {
     'e-hentai.org': true,
     'nhentai.com/home': true
 }
-export const nsfwBlockerMain = async () => {
-    console.log('Hi')
-    const splitted = location.hostname.split('.')
-    splitted.length === 3 ? splitted.shift() : splitted
-    const real = splitted.join('.')
-
-    if (fasterBadWebsites[real]) {
-        console.log("you're being very bad")
-        document.body.innerHTML = ''
-        document.body.style.display = 'flex'
-        document.body.style.alignItems = 'center'
-        document.body.style.justifyContent = 'center'
-        document.body.style.height = '100vh'
-        document.body.append('GET BACK ON THE GRIND KIND SIR')
-    }
-}
 
 class NsfwBlocker extends Feature {
-    startFeature() {
-        nsfwBlockerMain()
+    async startFeature() {
+        console.log('Hi')
+        const splitted = location.hostname.split('.')
+        splitted.length === 3 ? splitted.shift() : splitted
+        const real = splitted.join('.')
+
+        if (fasterBadWebsites[real]) {
+            console.log("you're being very bad")
+            document.body.innerHTML = ''
+            document.body.style.display = 'flex'
+            document.body.style.alignItems = 'center'
+            document.body.style.justifyContent = 'center'
+            document.body.style.height = '100vh'
+            document.body.append('GET BACK ON THE GRIND KIND SIR')
+        }
     }
 }
 
