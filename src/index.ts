@@ -1,5 +1,5 @@
-import { nsfwBlockerMain } from './nsfwBlocker';
-import osumain from './osuCollector/index';
+import { nsfwBlockerMain } from './features/nsfwBlocker';
+import osumain from './features/osuCollector/index';
 console.clear = () => {};
 var checkReady = setInterval(() => {
     if (document.readyState === 'complete') {

@@ -1,19 +1,3 @@
-// import sleep from '../util/sleep';
-
-// const badWebsites = [
-//     'pornhub.com',
-//     'pornhub.org',
-//     'pixiv.net',
-//     'redgifs.com',
-//     'hanime.tv',
-//     'nhentai.com',
-//     'gelbooru.com',
-//     'fakku.net',
-//     'rule34.xxx',
-//     'hitomi.la',
-//     'e-hentai.org',
-//     'nhentai.com/home',
-// ];
 const fasterBadWebsites: { [key: string]: boolean } = {
     'pornhub.com': true,
     'pornhub.org': true,
@@ -43,18 +27,4 @@ export const nsfwBlockerMain = async () => {
         document.body.style.height = '100vh';
         document.body.append('GET BACK ON THE GRIND KIND SIR');
     }
-
-    // badWebsites.forEach((s) => {
-    //     const real = location.hostname.replace('www.', '');
-    //     console.log(s, real);
-    //     if (real === s) {
-    //         console.log("you're being very bad");
-    //         document.body.innerHTML = '';
-    //         document.body.style.display = 'flex';
-    //         document.body.style.alignItems = 'center';
-    //         document.body.style.justifyContent = 'center';
-    //         document.body.style.height = '100vh';
-    //         document.body.append('GET BACK ON THE GRIND KIND SIR');
-    //     }
-    // });
 };
