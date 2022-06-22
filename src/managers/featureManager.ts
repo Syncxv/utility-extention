@@ -99,7 +99,7 @@ export class FeatureManager {
     getFeatureIds() {
         return (
             require
-                .context('../features', true, /\.ts$/)
+                .context('../features', true, /\index.ts$/)
                 .keys()
                 //returns array of ts files eg ["./nsfwBlocker/index.ts", "./osuCollector/index.ts", ...]
                 .map(path =>
