@@ -1,5 +1,6 @@
 export class Feature {
     ready: boolean
+    entityID: string
     constructor() {
         this.ready = false
     }

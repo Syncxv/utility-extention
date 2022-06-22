@@ -7,6 +7,12 @@
         "default_title": "welpy",
         "default_popup": "popup.html"
     },
+    "web_accessible_resources": [
+        {
+            "resources": ["js/index.js"],
+            "matches": ["http://*/*", "https://*/*"]
+        }
+    ],
     "content_scripts": [
         {
             "js": ["js/index.js"],
@@ -16,7 +22,7 @@
     "background": {
         "service_worker": "js/background.js"
     },
-    "permissions": ["tabs", "scripting", "storage", "file:///*", "http://*/*", "https://*/*"],
+    "permissions": ["tabs", "scripting", "storage", "webRequest", "http://*/*", "https://*/*"],
 
     "host_permissions": ["https://www.youtube.com/*", "https://osucollector.com/*", "https://*/", "http://*/"]
 }

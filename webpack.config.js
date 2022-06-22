@@ -1,4 +1,5 @@
 const path = require('path')
+// const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 // const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -19,6 +20,11 @@ module.exports = {
     externals: {},
     resolve: {
         extensions: ['.ts', '.js'],
+        fallback: {
+            path: require.resolve('path-browserify')
+            // fs: require.resolve('browserify-fs'),
+            // stream: require.resolve('stream-browserify')
+        },
         alias: {
             react: 'preact/compat',
             'react-dom/test-utils': 'preact/test-utils',
@@ -43,5 +49,11 @@ module.exports = {
                 }
             ]
         })
+        // new webpack.ProvidePlugin({
+        //     process: 'process/browser'
+        // }),
+        // new webpack.ProvidePlugin({
+        //     Buffer: ['buffer', 'Buffer']
+        // })
     ]
 }

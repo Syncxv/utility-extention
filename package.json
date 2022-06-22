@@ -10,7 +10,9 @@
     },
     "devDependencies": {
         "@types/chrome": "^0.0.188",
+        "@types/node": "^18.0.0",
         "@types/react": "^18.0.14",
+        "@types/webpack-env": "^1.17.0",
         "copy-webpack-plugin": "^11.0.0",
         "json-loader": "^0.5.7",
         "ts-loader": "^9.3.0",
@@ -19,7 +21,10 @@
         "webpack-cli": "^4.9.2"
     },
     "dependencies": {
+        "browserify-fs": "^1.0.0",
+        "path-browserify": "^1.0.1",
         "preact": "^10.8.1",
-        "preact-compat": "^3.19.0"
+        "preact-compat": "^3.19.0",
+        "stream-browserify": "^3.0.0"
     }
 }

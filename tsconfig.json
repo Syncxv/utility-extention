@@ -4,7 +4,7 @@
         "module": "commonjs",
         "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
         "jsx": "react-jsx",
-        "types": ["chrome"],
+        "types": ["chrome", "node", "webpack-env"],
         "skipLibCheck": true,
         "sourceMap": true,
         "outDir": "./dist",
