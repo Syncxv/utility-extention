@@ -15,7 +15,7 @@ export class Feature {
                 await this.startFeature();
             }
 
-            this.log('Plugin loaded');
+            this.log('feature loaded');
         } catch (e) {
             this.error('An error occurred during initialization!', e);
         } finally {
