@@ -6,6 +6,20 @@ export class FeatureManager {
     features: Map<string, Feature>
     constructor() {
         this.features = new Map()
+        chrome.runtime.onMessage.addListener((msg: { type: 'disable' | 'enable'; feature: string }, _, res) => {
+            const feature = this.features.get(msg.feature)
+            if (!feature) return res({ error: 'I CANT FIND THAT FEATURE' })
+            switch (msg.type) {
+                case 'disable':
+                    this.disable(feature.entityID)
+                    return res({ success: ':D' })
+                case 'enable':
+                    this.enable(feature.entityID)
+                    return res({ success: ':D' })
+                default:
+                    return res({ error: 'WHAT TYPE IS THAT?' })
+            }
+        })
     }
 
     get(pluginID: string) {
