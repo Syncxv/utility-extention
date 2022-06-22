@@ -1,0 +1,22 @@
+{
+    "name": "Utility Extention",
+    "description": "nice useful stuff",
+    "version": "2.0.0",
+    "manifest_version": 3,
+    "action": {
+        "default_title": "welpy",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "js": ["js/index.js"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "permissions": ["tabs", "scripting", "file:///*", "http://*/*", "https://*/*"],
+
+    "host_permissions": ["https://www.youtube.com/*", "https://osucollector.com/*", "https://*/", "http://*/"]
+}

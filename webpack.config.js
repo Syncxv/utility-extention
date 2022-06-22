@@ -1,26 +1,26 @@
-const path = require("path");
+const path = require('path');
 // const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
-    mode: "development",
-    devtool: "inline-source-map",
+    mode: 'development',
+    devtool: 'inline-source-map',
 
     entry: {
-        index: "./src/index.ts",
-        background: "./src/background.ts",
+        index: './src/index.ts',
+        background: './src/background.ts',
     },
 
     output: {
-        path: path.resolve(__dirname, "dist/js"),
-        filename: "[name].js",
+        path: path.resolve(__dirname, 'dist/js'),
+        filename: '[name].js',
     },
     externals: {},
     resolve: {
-        extensions: [".ts", ".js"],
+        extensions: ['.ts', '.js'],
     },
     module: {
         rules: [
-            { test: /\.ts?$/, exclude: /(node_modules)/, loader: "ts-loader" },
+            { test: /\.ts?$/, exclude: /(node_modules)/, loader: 'ts-loader' },
             // {
             //     test: /\.css$/,
             //     use: [
