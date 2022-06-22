@@ -2,10 +2,14 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/chrome': ^0.0.188
+  preact: ^10.8.1
   ts-loader: ^9.3.0
   typescript: ^4.6.4
   webpack: ^5.72.1
   webpack-cli: ^4.9.2
+
+dependencies:
+  preact: 10.8.1
 
 devDependencies:
   '@types/chrome': 0.0.188
@@ -656,6 +660,10 @@ packages:
     dependencies:
       find-up: 4.1.0
     dev: true
+
+  /preact/10.8.1:
+    resolution: {integrity: sha512-p5CKQ0MCEXTGKGOHiFaNE2V2nDq2hvDHykXvIlz+4lbfJ9umLZr8JS/fa1bXUwRcHXK+Ljk8zqmDhr25n0LtVg==}
+    dev: false
 
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}

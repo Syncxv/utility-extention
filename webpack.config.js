@@ -8,6 +8,7 @@ module.exports = {
     entry: {
         index: './src/index.ts',
         background: './src/background.ts',
+        ui: './src/ui/ui.tsx',
     },
 
     output: {
@@ -17,10 +18,16 @@ module.exports = {
     externals: {},
     resolve: {
         extensions: ['.ts', '.js'],
+        alias: {
+            react: 'preact/compat',
+            'react-dom/test-utils': 'preact/test-utils',
+            'react-dom': 'preact/compat', // Must be below test-utils
+            'react/jsx-runtime': 'preact/jsx-runtime',
+        },
     },
     module: {
         rules: [
-            { test: /\.ts?$/, exclude: /(node_modules)/, loader: 'ts-loader' },
+            { test: /\.(ts|tsx)$/, exclude: /(node_modules)/, loader: 'ts-loader' },
             // {
             //     test: /\.css$/,
             //     use: [
@@ -56,7 +63,6 @@ module.exports = {
             // }
         ],
     },
-
     context: __dirname, //set the context of your app to be the project directory
     node: {
         __dirname: true, //Allow use of __dirname in modules, based on context
